@@ -1,0 +1,66 @@
+:root {
+    /* 深色与浅色区域统一变量 */
+    --color-bg-dark: #0B0F19;
+    --color-bg-light: #F8FAFC;
+    --color-text-main: #0F172A;
+    --color-text-sub: #475569;
+    --color-text-muted: #94A3B8;
+    --color-white: #FFFFFF;
+
+    --color-primary: #2563EB;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+
+    --font-heading: 'Outfit', -apple-system, sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, monospace;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-pill: 9999px;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+    --shadow-cta: 0 0 40px rgba(255, 255, 255, 0.15);
+
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* 顶栏在深色背景时文字为白色，滚到浅色区时文字变深 */
+.app-root .header {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    transition: all 0.4s ease;
+}
+.app-root .logo-mark, .app-root .logo-text, .app-root .wallet-badge .address { color: white !important; }
+.app-root .wallet-badge { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.2) !important; }
+.app-root .wallet-badge .chain { color: rgba(255,255,255,0.6) !important; }
+.app-root .btn-primary { background: white !important; color: var(--color-bg-dark) !important; }
+
+/* 滚动到下方工作区后的顶栏样式 */
+.app-root.scrolled .header {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6) !important;
+}
+.app-root.scrolled .logo-mark, .app-root.scrolled .logo-text, .app-root.scrolled .wallet-badge .address { color: var(--color-text-main) !important; }
+.app-root.scrolled .wallet-badge { background: #F1F5F9 !important; border-color: #E2E8F0 !important; }
+.app-root.scrolled .wallet-badge .chain { color: var(--color-text-muted) !important; }
+.app-root.scrolled .btn-primary { background: var(--color-bg-dark) !important; color: white !important; }
